@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es6",                              
+    "module": "commonjs",               
+    "outDir": "./dist",                           
+    "rootDir": "./src",               
+    "strict": true,   
+    "moduleResolution": "node", 
+    "resolveJsonModule": true,                
+    "esModuleInterop": true,                        
+    "skipLibCheck": true,                           
+    "forceConsistentCasingInFileNames": true
+  },
+  "exclude": [
+    "src/mocks",
+    "**/*.test.ts",
+    "./dist"
+  ]
+}
