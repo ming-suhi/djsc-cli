@@ -12,10 +12,8 @@
 # **[@ming-suhi/djsc-cli](https://github.com/ming-suhi/djsc-cli)**
 A package for posting, updating, and deleting Discord Application Commands from the command line or terminal. 
 
-### Automatic Operation
 It has a `sync` command; which will `post` to discord local commands not posted, `update` to discord commands modified locally, and `delete` from discord commands that doesn't exist locally.
 
-### Manual Operation
 It also offers manual `post` and `delete` command to accommodate special needs. To make manual operations more easier, the package also offers a `compare` command that compares the status of commands locally and on Discord. Open CLI package main menu for list of commands.
 
 ## Quick Start
@@ -45,7 +43,7 @@ mapCommands: () => {
   // Example for discord.js users
   const commands = [];
   const commandsDir = path.resolve("src/commands");
-  for(let filePath of readdirSync(commandsDir)) {
+  for(let filePath of fs.readdirSync(commandsDir)) {
     const commandPath = path.resolve(commandsDir, filePath);
     const command = require(commandPath);
     commands.push(command.toJSON());

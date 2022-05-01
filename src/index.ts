@@ -1,4 +1,5 @@
 #!node
+import clear from "clear";
 
 import { red } from "chalk";
 import path from "path";
@@ -7,6 +8,7 @@ import { getFilePaths } from "./services/file-system";
 import Client from "./structures/client";
 
 async function main() {
+  clear();
   const root = process.cwd();
   const configPath = path.resolve(root, "djsc.config.js");
 
@@ -15,10 +17,10 @@ async function main() {
   }
 
   const config = require(configPath);
-  
-  if(!config.appId) return console.log(red("APP_ID not defined in .env file\n"));
-  if(!config.botToken) return console.log(red("BOT_TOKEN not defined in .env file\n"));
-  if(!config.mapCommands) return console.log(red("COMMANDS_FOLDER not defined in .env file\n"));
+
+  if(!config.appId) return console.log(red("appId not defined in config file\n"));
+  if(!config.botToken) return console.log(red("botToken not defined in config file\n"));
+  if(!config.mapCommands) return console.log(red("mapCommands not defined in config file\n"));
 
   const commands = config.mapCommands();
 
