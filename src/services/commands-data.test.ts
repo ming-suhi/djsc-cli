@@ -1,6 +1,5 @@
 import { getCommand } from "./commands-data";
 import commandData from "../mocks/channels.json";
-import { APIApplicationCommand } from "discord-api-types";
 
 describe("CommandsMap", () => {
 
@@ -23,7 +22,6 @@ describe("CommandsMap", () => {
 
     it("should get subcommand", () => {
       const command = getCommand([commandData], ["moderate", "member", "timeout"]);
-      console.log(command)
       expect(command).toEqual(commandData.options?.find(option => option.name == "member")?.options?.find(option => option.name == "timeout"));
     });
   });
