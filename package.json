@@ -12,9 +12,11 @@
     "djsc": "dist/index.js"
   },
   "dependencies": {
+    "@types/lodash": "^4.14.182",
     "chalk": "^4.1.2",
     "clear": "^0.1.0",
     "figlet": "^1.5.2",
+    "lodash": "^4.17.21",
     "node-fetch-retry": "^2.0.0"
   },
   "devDependencies": {
