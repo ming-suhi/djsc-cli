@@ -30,8 +30,8 @@ module.exports = class extends Command {
 
     // delete database only
     for(let commandName of databaseOnly) {
-      const command = commandDatas.find(data => data.name == commandName);
-      await deleteCommand(this.client.appID, this.client.botToken, command!.id)
+      const deleteCommand = this.client.commands.get("deletecommand")!;
+      await deleteCommand.execute([`${commandName}`])
     }
 
     console.log(green(`Successfully synched commands. \n`));
