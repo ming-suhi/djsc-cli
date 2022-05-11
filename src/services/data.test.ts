@@ -61,4 +61,26 @@ it("should delete blank properties", () => {
   expect(sample).toEqual({
     choices: {}
   });
+
+  const sampleB = {
+    options: [
+      {
+        name: "1"
+      }
+    ],
+    choices: {
+      choiceA: []
+    }
+  };
+  for(let reference of getBlankPropertyReferences(sampleB)) {
+    deletePropertyByReference(sampleB, reference);
+  }
+  expect(sampleB).toEqual({
+    options: [
+      {
+        name: "1"
+      }
+    ],
+    choices: {}
+  });
 });

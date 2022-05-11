@@ -36,7 +36,7 @@ export const getArrayPropertyReferences = (object: any) => getPropertyReferences
  * Get the reference of all blank properties
  * @param object An object
  */
-export const getBlankPropertyReferences = (object: any) => getPropertyReferences(object, (value) => value == "" || (value instanceof Array || value === Object(value) && Object.keys(value as any).length == 0));
+export const getBlankPropertyReferences = (object: any) => getPropertyReferences(object, (value) => value == "" || ((value instanceof Array || value === Object(value)) && Object.keys(value as any).length == 0));
 
 /**
  * Overwrite the value of a property
