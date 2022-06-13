@@ -1,6 +1,6 @@
 {
   "name": "@ming-suhi/djsc-cli",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A package for posting, updating, deleting slash commands from your terminal.",
   "main": "dist/index.js",
   "scripts": {
