@@ -18,14 +18,14 @@ module.exports = class extends Command {
 
     // post local only
     for(let commandName of localOnly) {
-      const command = localCommands.find(command => command.name == commandName)!;
-      await postCommand(this.client.appID, this.client.botToken, command);
+      const postcommand = this.client.commands.get("postcommand")!;
+      await postcommand.execute([`${commandName}`]);
     }
 
     // edit modified
     for(let commandName of modified) {
-      const command = localCommands.find(command => command.name == commandName)!;
-      await postCommand(this.client.appID, this.client.botToken, command);
+      const postcommand = this.client.commands.get("postcommand")!;
+      await postcommand.execute([`${commandName}`]);
     }
 
     // delete database only

@@ -7,7 +7,7 @@ import fetch from "node-fetch-retry";
  * @param token Bot token
  */
 export async function getCommands(appId: string, token: string): Promise<RESTGetAPIApplicationCommandsResult> {
-  const response = await fetch(`https://discord.com/api/v8/applications/${appId}/commands`, {
+  const response = await fetch(`https://discord.com/api/v10/applications/${appId}/commands`, {
     method: 'GET',
     headers: {'Authorization': `Bot ${token}`},
     retry: 3, 
@@ -25,7 +25,7 @@ export async function getCommands(appId: string, token: string): Promise<RESTGet
  * @param data Command data
  */
 export async function postCommand(appId: string, token: string, data: RESTPostAPIApplicationCommandsJSONBody) {
-  const response = await fetch(`https://discord.com/api/v8/applications/${appId}/commands`, {
+  const response = await fetch(`https://discord.com/api/v10/applications/${appId}/commands`, {
     method: 'POST',
     headers: {
       'Authorization': `Bot ${token}`,
@@ -47,7 +47,7 @@ export async function postCommand(appId: string, token: string, data: RESTPostAP
  * @param commandId Command Id
  */
 export async function deleteCommand(appId: string, token: string, commandId: string) {
-  const response = await fetch(`https://discord.com/api/v8/applications/${appId}/commands/${commandId}`, {
+  const response = await fetch(`https://discord.com/api/v10/applications/${appId}/commands/${commandId}`, {
     method: 'DELETE',
     headers: {'Authorization': `Bot ${token}`},
     retry: 3, 

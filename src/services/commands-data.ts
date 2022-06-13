@@ -68,22 +68,23 @@ export function transformCommand(database: APIApplicationCommand[]) {
  * @param database Array of discord command data
  */
 export function compareCommands(local: RESTPostAPIApplicationCommandsJSONBody[], database: RESTGetAPIApplicationCommandsResult) {
+  const localCopy = JSON.parse(JSON.stringify(local)) as RESTPostAPIApplicationCommandsJSONBody[];
   transformCommand(database);
-  for(let reference of getBlankPropertyReferences(local)) {
-    deletePropertyByReference(local, reference)
+  for(let reference of getBlankPropertyReferences(localCopy)) {
+    deletePropertyByReference(localCopy, reference)
   }
   for(let reference of getBlankPropertyReferences(database)) {
     deletePropertyByReference(database, reference)
   }
-  for(let reference of getArrayPropertyReferences(local)) {
-    overwriteValueByReference(local, reference, arrayToObject(getValueByReference(local, reference), "name"))
+  for(let reference of getArrayPropertyReferences(localCopy)) {
+    overwriteValueByReference(localCopy, reference, arrayToObject(getValueByReference(localCopy, reference), "name"))
   }
   for(let reference of getArrayPropertyReferences(database)) {
     overwriteValueByReference(database, reference, arrayToObject(getValueByReference(database, reference), "name"))
   }
-  const localOnly = local.map(command => command.name).filter(name => !database.find(command => command.name == name));
-  const databaseOnly = database.map(command => command.name).filter(name => !local.find(command => command.name == name));
-  const modified = local.filter(local => database.find(database => local.name == database.name))
+  const localOnly = localCopy.map(command => command.name).filter(name => !database.find(command => command.name == name));
+  const databaseOnly = database.map(command => command.name).filter(name => !localCopy.find(command => command.name == name));
+  const modified = localCopy.filter(local => database.find(database => local.name == database.name))
   .filter(local => {
     return !(_.isEqual(local, database.find(database => local.name == database.name)))
   })
