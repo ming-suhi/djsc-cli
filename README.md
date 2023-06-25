@@ -1,14 +1,5 @@
-<p align="right">
-  <a href="https://discord.com/invite/P3UMxQCEaY" target="_blank">
-    <img src="https://discordapp.com/api/guilds/753818535440023593/widget.png?style=shield" alt="Discord Server">
-  </a>
-</p>
-<p align="right">
-  <a href="https://discord.com/invite/P3UMxQCEaY" target="_blank">
-    <text>Join Support Server | Meet Developer</text>
-  </a>
-</p>
-
+# Repository Discontinued and is Now Archived
+###### Please Take Note When Using
 # **[@ming-suhi/djsc-cli](https://github.com/ming-suhi/djsc-cli)**
 A package for posting, updating, and deleting Discord Application Commands from the command line or terminal. 
 
